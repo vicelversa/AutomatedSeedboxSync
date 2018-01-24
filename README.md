@@ -1,5 +1,5 @@
 # AutomatedSeedboxSync
-Automated Seedbox Sync (ASS) Script
+
 This script will download a set of directories including sub-directories using LFTP and remove files and directories on remote server after completion.
 The script will be locked during execution so it cannot be called until transfers are complete.
 LFTP will loop back and retry downloading until there are no new files to download before removing the lock.
