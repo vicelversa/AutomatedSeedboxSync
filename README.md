@@ -15,6 +15,7 @@ After all transfers are complete, the script will look for any rar files inside 
 If files are found in movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
 
 
+
 --- Additional Seedbox Configuration Info ---
 
 This script assumes your seedbox is creating hardlinks after torrents have completed to folders based on names such as ./movies and ./tv.
@@ -27,6 +28,7 @@ For rTorrent, see the sample.rtorrent.rc file which will:
 The notify.sh script holds a ssh command to connect to your local client where the ASS script lives and execute it in a screen so you may monitor it locally.
 
 Example: ssh user@localclientIP "source .profile; screen -mdS ASS ~/ASS.sh"
+
 
 
 --- Additional local Sonarr / Radarr Configuration Info ---
