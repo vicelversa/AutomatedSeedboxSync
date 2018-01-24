@@ -1,0 +1,17 @@
+#Move completed to directory based on label name
+system.method.insert=d.get_finished_dir,simple,"cat=~/files/,$d.get_custom1="
+
+system.method.set_key=event.download.finished,move_complete,"d.set_directory=$d.get_finished_dir=;execute=mkdir,-p,$d.get_finished_dir=;execute=mv,-u,$d.get_base_path=,$d.get_finished_dir="
+
+
+#Hard link to FTP folder based on label
+system.method.insert=d.get_finished_ftp,simple,"cat=~/files/FTP/,$d.get_custom1="
+system.method.insert=d.get_data_full_path,simple,"branch=((d.is_multi_file)),((cat,(d.directory))),((cat,(d.directory),/,(d.name)))"
+
+system.method.set_key=event.download.finished,link_complete,"execute=mkdir,-p,$d.get_finished_ftp=;execute=cp,-al,$d.get_data_full_path=,$d.get_finished_ftp="
+
+
+#notify script for completed torrents
+method.set_key=event.download.finished,push_me,"execute=~/notify.sh"
+
+
