@@ -34,7 +34,7 @@ Example: ssh user@localclientIP "source .profile; screen -mdS ASS ~/ASS.sh"
 In order to use Sonarr and Radarr locally, you must configure it to communicate with your seedbox torrent application so it can send torrents to it to download.
 This ASS script will handle downloading those files to a directory based on the torrent label name. We must then tell Sonarr and Radarr where to look for the completed transfers.
 
-In Sonarr / Radarr, navigate to Settings, the Download client and make sure Advanced Settings are shown.
+In Sonarr / Radarr, navigate to Settings, then Download client and make sure Advanced Settings are shown.
 At the bottom there is a section for "Remote Path Mappings"
 
 Host is your seedbox public URL
@@ -49,4 +49,4 @@ Once sonarr/radarr sees the files in the local path, it will then process and co
 The copy function is a limitation and will leave you with multiple copies of files in your LFTP transfer directories.
 You must also setup a cleanup post processing script to clean up those directories after successful import from sonarr/radarr.
 
-See example sonar and radarr cleanup scripts
+See the sonar and radarr cleanup scripts.
