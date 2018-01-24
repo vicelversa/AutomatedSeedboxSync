@@ -11,7 +11,7 @@ Values are accepted in bytes per second or you can specify MB by using *M
 
 Example: To throttle speed to 5 MB/s, call script like this: ./ASS.sh 5M
 
-After all transfers are complete, the script will look for any rar files inside the sonarr / radarr directories and extract them automatically
+After all transfers are complete, the script will look for any rar files inside the sonarr / radarr directories and extract them automatically.
 If files are found in movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
 
 
