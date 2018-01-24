@@ -16,6 +16,7 @@ If files are found in movies or tv directories, Filebot will run on those direct
 
 
 --- Additional Seedbox Configuration Info ---
+
 This script assumes your seedbox is creating hardlinks after torrents have completed to folders based on names such as ./movies and ./tv.
 For rTorrent, see the sample.rtorrent.rc file which will:
 
@@ -29,6 +30,7 @@ Example: ssh user@localclientIP "source .profile; screen -mdS ASS ~/ASS.sh"
 
 
 --- Additional local Sonarr / Radarr Configuration Info ---
+
 In order to use Sonarr and Radarr locally, you must configure it to communicate with your seedbox torrent application so it can send torrents to it to download.
 This ASS script will handle downloading those files to a directory based on the torrent label name. We must then tell Sonarr and Radarr where to look for the completed transfers.
 
