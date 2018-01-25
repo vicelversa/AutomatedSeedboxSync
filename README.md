@@ -49,4 +49,4 @@ Once sonarr/radarr sees the files in the local path, it will then process and co
 The copy function is a limitation and will leave you with multiple copies of files in your LFTP transfer directories.
 You must also setup a cleanup post processing script to clean up those directories after successful import from sonarr/radarr.
 
-See the sonar and radarr cleanup scripts.
+See the sonar and radarr cleanup scripts which are to be called via sonarr / radarr from: settings, connect, custom script and "on download, on upgrade"
