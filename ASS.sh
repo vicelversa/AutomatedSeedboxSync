@@ -40,6 +40,7 @@ else
 	touch "$lock_file"
 	lftp -p "$port" -u "$login","$pass" sftp://"$host" << EOF
 	set dns:fatal-timeout never
+	set net:reconnect-interval-base 5
 	set ftp:list-options -a
 	set sftp:auto-confirm yes
 	set pget:min-chunk-size 2M
