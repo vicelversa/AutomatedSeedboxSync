@@ -11,8 +11,7 @@ Values are accepted in bytes per second or you can specify MB by using *M
 
 Example: To throttle speed to 5 MB/s, call script like this: ./ASS.sh 5M
 
-After all transfers are complete, the script will look for any rar files inside the sonarr / radarr directories and extract them automatically.
-If files are found in movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
+After all transfers are complete, the script will look for any rar files inside the movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
 
 
 --- Additional Seedbox Configuration Info ---
@@ -27,26 +26,3 @@ For rTorrent, see the sample.rtorrent.rc file which will:
 The notify.sh script holds a ssh command to connect to your local client where the ASS script lives and execute it in a screen so you may monitor it locally.
 
 Example: ssh user@localclientIP "source .profile; screen -mdS ASS ~/ASS.sh"
-
-
---- Additional local Sonarr / Radarr Configuration Info ---
-
-In order to use Sonarr and Radarr locally, you must configure it to communicate with your seedbox torrent application so it can send torrents to it to download.
-This ASS script will handle downloading those files to a directory based on the torrent label name. We must then tell Sonarr and Radarr where to look for the completed transfers.
-
-In Sonarr / Radarr, navigate to Settings, then Download client and make sure Advanced Settings are shown.
-At the bottom there is a section for "Remote Path Mappings"
-
-Host is your seedbox public URL
-
-Remote Path is the directory on the seedbox finished torrents will end up.
--In this case, the rtorrent download client is set to set a label of "tv-sonarr" on all torrents sonarr sends to the seedbox.
--The rtorrent.rc config will move finished torrents to folders based on their label, so it will be something like: ~/files/tv-sonarr/
-
-Local Path is well...the local directory on your client where the ASS script will transfer the files. Example: /Multimedia/Downloading/tv-sonarr/
-
-Once sonarr/radarr sees the files in the local path, it will then process and copy those files to your media folders.
-The copy function is a limitation and will leave you with multiple copies of files in your LFTP transfer directories.
-You must also setup a cleanup post processing script to clean up those directories after successful import from sonarr/radarr.
-
-See the sonar and radarr cleanup scripts which are to be called via sonarr / radarr from: settings, connect, custom script and "on download, on upgrade"
