@@ -9,7 +9,7 @@ Argument 1, "limit" is used to pass a transfer limit to the LFTP process.
 If nothing is defined when script is called, a value of 0 is set which = unlimited.
 Values are accepted in bytes per second or you can specify MB by using *M
 
-Example: To throttle speed to 5 MB/s, call script like this: ./ASS.sh 5M
+Example: To throttle speed to 5 MB/s, call script like this: ./ass.sh 5M
 
 After all transfers are complete, the script will look for any rar files inside the movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
 
@@ -25,4 +25,4 @@ For rTorrent, see the sample.rtorrent.rc file which will:
 
 The notify.sh script holds a ssh command to connect to your local client where the ASS script lives and execute it in a screen so you may monitor it locally.
 
-Example: ssh user@localclientIP "source .profile; screen -mdS ASS ~/ASS.sh"
+Example: ssh user@localclientIP "source .profile; screen -mdS ass ~/ass.sh"
