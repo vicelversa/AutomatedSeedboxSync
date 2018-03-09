@@ -13,6 +13,18 @@ Example: To throttle speed to 5 MB/s, call script like this: ./ass.sh 5M
 
 After all transfers are complete, the script will look for any rar files inside the movies or tv directories, Filebot will run on those directories which will sort through the media (movies and tv), unpack, identify and move to appropriate media folders.
 
+There are a few lftp variables which you may want to tweak depending on your network speed and latency.
+
+  set mirror:use-pget-n <number>
+	set mirror:parallel-transfer-count <number>
+	set net:socket-buffer <bytes>
+  
+mirror:use-pget-n tells lftp how many simultaneous segments to download
+mirror:parallel-transfer-count tells lftp how many simultaneous files to download
+net:socket-buffer sets the buffer window. For high latency connections you will want to tweak this along with your available bandwidth.
+
+See this link for calculating an appropriate buffer: http://www.onlamp.com/2005/11/17/tcp_tuning.html
+
 
 --- Additional Seedbox Configuration Info ---
 
