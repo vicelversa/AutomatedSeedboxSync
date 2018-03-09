@@ -45,7 +45,7 @@ else
 	set mirror:use-pget-n 20
 	set mirror:parallel-transfer-count 2
 	set mirror:parallel-directories yes
-	set net:socket-buffer 6488064
+	set net:socket-buffer 0
 	set xfer:use-temp-file yes
 	set xfer:temp-file-name *.lftp
 	set net:limit-total-rate $limit
