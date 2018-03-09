@@ -15,8 +15,6 @@ host=''
 port='22'
 remote_dir=''
 local_dir=''
-sonarr_dir=''
-radarr_dir=''
 filebot=''
 
 # Filebot Configuration, please plug-in your Filebot configuration here:
@@ -79,28 +77,6 @@ else
 fi
 
 # Begin post-processing of downloaded files
-
-# This looks for any rar files in the sonarr directory and will unpack them and rename the original rar to prevent duplicate processing
-if [ $(find "$sonarr_dir" -name "*.rar" | wc -l) -gt 0 ]; then
-        echo -e "${Cyan}RAR files found in tv-sonarr directory. Extracting...${NC}"
-        find "$sonarr_dir" -name '*.rar' -execdir unrar e -o- -inul {} temp/ \;
-        find "$sonarr_dir" -type d -name 'temp' -exec bash -c 'mv {}/* "$(dirname {})"' \;
-        find "$sonarr_dir" -name '*.rar' -exec bash -c 'mv {} {}1' \;
-        echo -e "${Green}Extraction complete!${NC}"
-else
-:
-fi
-
-# This looks for any rar files in the radarr directory and will unpack them and rename the original rar to prevent duplicate processing
-if [ $(find "$radarr_dir" -name "*.rar" | wc -l) -gt 0 ]; then
-        echo -e "${Cyan}RAR files found in movies-radarr directory. Extracting...${NC}"
-        find "$radarr_dir" -name '*.rar' -execdir unrar e -o- -inul {} temp/ \;
-        find "$radarr_dir" -type d -name 'temp' -exec bash -c 'mv {}/* "$(dirname {})"' \;
-        find "$radarr_dir" -name '*.rar' -exec bash -c 'mv {} {}1' \;
-        echo -e "${Green}Extraction complete!${NC}"
-else
-:
-fi
 
 # Check for files in your movies and tv LFTP transfer directories (./movies ./tv) and run Filebot
 if find "$local_dir"movies/ "$local_dir"tv/ -mindepth 1 | read; then
