@@ -15,7 +15,7 @@ After all transfers are complete, the script will look for any rar files inside 
 
 There are a few lftp variables which you may want to tweak depending on your network speed and latency.
 
-  set mirror:use-pget-n <number>
+	set mirror:use-pget-n <number>
 	set mirror:parallel-transfer-count <number>
 	set net:socket-buffer <bytes>
   
